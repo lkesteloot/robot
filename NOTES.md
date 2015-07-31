@@ -1,8 +1,14 @@
 
 # To do
 
-* Hook up pot to Arduino for real-time control.
-* Bi-directional H-bridge from Arduino. Use 3-way switch for control.
+* Read through all blog posts for the [power supply](https://hackaday.io/project/4154-bench-power-supply).
+* Watch control systems YouTube videos.
+    * https://www.youtube.com/user/ControlLectures
+        * Resume at #16.
+* Model magnet adapter.
+    * Make it possible to pop magnet out.
+    * Maybe make D-shaft flexible.
+* Model AS5045 board holder.
 * Try PWM library for higher frequency.
 * Implement PID for motor.
     * Decide on feedback.
@@ -20,8 +26,6 @@
 * Can we find an IC that converts current to something measurable by the Arduino so that
     we can shut things off if the current goes up too much?
     * ACS710
-* Order [kill switch](http://www.amazon.com/Amico-Mushroom-Emergency-Button-Station/dp/B008LT2VH2).
-* Order [locktight](http://www.amazon.com/LOCTITE-37418-Medium-Strength-Threadlocker/dp/B000FIXQXK)
 * Figure out how I'll control all this.
     * Mac OS to Ubuntu in VirtualBox to Arduino to hardware?
     * i2cproxy?
@@ -216,6 +220,12 @@
 * Basically math works outside-in.
 * Jameco has a kit of screws. Heat sink itself is sold separately.
 
+# 3D printing
+
+* OpenSCAD
+    * [Mounting plates](https://github.com/createthis/DIYServo/tree/master/OpenSCAD)
+        * Includes one for AS5045 board.
+
 # Parts
 
 * NPN, PNP BJT:
@@ -245,6 +255,14 @@
     * About $10. Looks like SMT.
     * [With breakout board](http://www.digikey.com/product-detail/en/AS5045-EK-AB/AS5045-EK-AB-ND/2339623) ($16)
     * Also AS5043 is 10-bit version.
+    * [Guy who used it](http://dangerousprototypes.com/forum/viewtopic.php?f=56&t=3669)
+    * [Forum for it](http://www.madscientisthut.com/forum_php/viewforum.php?f=11&sid=04bf2dbaab5299ec3545b01336a225a1)
+    * [Library](https://github.com/smellsofbikes/AS5045_arduino_library)
+* [MD01B motor driver](https://www.pololu.com/product/705)
+    * 9A
+* Mikronauts:
+    * [Raspberry Pi robot board](http://www.mikronauts.com/raspberry-pi/robopi/)
+    * [Raspberry Pi proto board](http://www.mikronauts.com/raspberry-pi/ezaspi/)
 
 # Code references
 
@@ -260,6 +278,8 @@
 * [Jameco](http://www.jameco.com/) seems like a good place to get electronic parts. They're in Belmont and have will-call.
 * [Power supplies](http://www.jameco.com/Jameco/catalogs/c151/P106.pdf)
     * [12V power supplies](http://www.jameco.com/Jameco/content/12-volt-power.html)
+* [Octopart](https://octopart.com/) - Part search engine.
+* [Tayda](http://www.taydaelectronics.com/) - From Thailand, good reviews of it.
 
 # Architecture ideas
 
@@ -272,6 +292,9 @@
 # For later
 
 * [Robotic claw](https://www.sparkfun.com/products/11524) for $12.
+* [OpenServo](http://openservo.com/)
+* [DIYServo](http://www.diyservo.com/)
+* [Saleae](https://www.saleae.com/) -- Software for the logic analyzer.
 
 # Log
 
