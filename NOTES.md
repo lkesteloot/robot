@@ -1,7 +1,6 @@
 
 # To do
 
-* Move SCAD files to their own directory.
 * Read through all blog posts for the [power supply](https://hackaday.io/project/4154-bench-power-supply).
 * Watch control systems YouTube videos.
     * https://www.youtube.com/user/ControlLectures
