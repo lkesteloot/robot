@@ -1,14 +1,10 @@
 
 # To do
 
+* Move SCAD files to their own directory.
 * Read through all blog posts for the [power supply](https://hackaday.io/project/4154-bench-power-supply).
 * Watch control systems YouTube videos.
     * https://www.youtube.com/user/ControlLectures
-        * Resume at #16.
-* Model magnet adapter.
-    * Make it possible to pop magnet out.
-    * Maybe make D-shaft flexible.
-* Model AS5045 board holder.
 * Try PWM library for higher frequency.
 * Implement PID for motor.
     * Decide on feedback.
@@ -295,6 +291,7 @@
 * [OpenServo](http://openservo.com/)
 * [DIYServo](http://www.diyservo.com/)
 * [Saleae](https://www.saleae.com/) -- Software for the logic analyzer.
+* Name: Robecca Steam
 
 # Log
 

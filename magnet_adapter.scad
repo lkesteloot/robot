@@ -49,21 +49,21 @@ module big_x(height, height_below, height_above, skip_positive_x) {
 
 // Make the magnet adapter along Z axis, starting at Z = 0
 // and with given height.
-module magnet_adapter(height) {
+module magnet_adapter() {
     difference() {
         union() {
-            cylinder(height, adapter_radius, adapter_radius);
+            cylinder(adapter_height, adapter_radius, adapter_radius);
             cylinder(foot_height, foot_radius, foot_radius);
         }
         translate([0, 0, -1]) {
             shaft(shaft_insert + 1);
             big_x(shaft_insert + 1, 1, 0, true);
         }
-        translate([0, 0, height - magnet_height]) {
+        translate([0, 0, adapter_height - magnet_height]) {
             magnet(1);
             big_x(magnet_height, 0, 1, false);
         }
     }
 }
 
-magnet_adapter(adapter_height);
+// magnet_adapter();

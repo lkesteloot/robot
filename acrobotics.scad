@@ -117,6 +117,9 @@ module acrobotics_plate(count) {
 // the rest in the positive Y and Z semispaces. The open part
 // of the channel is at +Z.
 module acrobotics_channel(count) {
+    // Unused:
+    /// corner_radius = 0.1*inch_to_mm;
+
     acrobotics_plate(count);
     translate([0, acrobotics_thickness, 0]) {
         rotate([90, 0, 0]) {
