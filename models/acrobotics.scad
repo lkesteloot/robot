@@ -1,3 +1,4 @@
+include <config.scad>;
 
 inch_to_mm = 25.4;
 
@@ -26,10 +27,10 @@ module acrobotics_holes(height, right_end) {
     small_diagonal_spacing_in = 0.77;
     large_orthogonal_spacing_in = large_diagonal_spacing_in/sqrt(2);
     
-    // Convert to mm.
-    large_radius = large_radius_in*inch_to_mm;
-    medium_radius = medium_radius_in*inch_to_mm;
-    small_radius = small_radius_in*inch_to_mm;
+    // Convert to mm, add padding to holes.
+    large_radius = large_radius_in*inch_to_mm + 0.1;
+    medium_radius = medium_radius_in*inch_to_mm + 0.1;
+    small_radius = small_radius_in*inch_to_mm + 0.2;
     large_hole_spacing = large_hole_spacing_in*inch_to_mm;
     small_diagonal_spacing = small_diagonal_spacing_in*inch_to_mm;
     large_orthogonal_spacing = large_orthogonal_spacing_in*inch_to_mm;
@@ -132,3 +133,5 @@ module acrobotics_channel(count) {
         }
     }
 }
+
+acrobotics_plate(1);

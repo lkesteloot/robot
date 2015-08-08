@@ -28,10 +28,18 @@ module plate() {
                 acrobotics_holes(plate_thickness*2, true);
             }
         }
+        
+        // Removed unused areas.
+        first_square_width = plate_length - acrobotics_channel_width - bracket_hole_long_length - bracket_hole_margin*2;
         translate([acrobotics_channel_width, arm_radius*2, -plate_thickness/2]) {
-            cube([plate_length - acrobotics_channel_width - bracket_hole_long_length - bracket_hole_margin*2, plate_height - arm_radius*4, plate_thickness*2]);
+            cube([first_square_width, plate_height - arm_radius*4, plate_thickness*2]);
+        }
+        second_square_length = bracket_hole_long_length + 2*hole_radius;
+        second_square_height = pcb_plate_height - 5*arm_radius;
+        translate([acrobotics_channel_width + first_square_width + 4, (acrobotics_channel_width - second_square_height)/2, -plate_thickness/2]) {
+            cube([second_square_length, second_square_height, plate_thickness*2]);
         }
      }
  }
  
- // plate();
+ plate();
