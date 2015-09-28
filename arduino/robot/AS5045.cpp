@@ -58,3 +58,22 @@ AS5045Data AS5045::getData() {
 
     return data;
 }
+
+void AS5045Data::print() {
+    int written = Serial.print(angle);
+    for (int i = written; i < 4; i++) {
+      Serial.print(" ");
+    }
+    
+    Serial.print(movingAway);
+    Serial.print(" ");
+    Serial.print(movingToward);
+    Serial.print(" ");
+    Serial.print(linearityError);
+    Serial.print(" ");
+    Serial.print(cordicOverflow);
+    Serial.print(" ");
+    Serial.print(chipReady);
+    Serial.println();
+}
+

@@ -13,6 +13,8 @@ struct AS5045Data {
     bool linearityError;
     bool cordicOverflow;  // Data invalid.
     bool chipReady;
+    
+    void print();
 };
 
 class AS5045 {
