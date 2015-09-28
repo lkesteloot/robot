@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# "cu" is the one that doesn't require hardware handshaking.
+echo "Dumping to \"out\"."
+cat /dev/cu.usbmodem1d114441 > out
+

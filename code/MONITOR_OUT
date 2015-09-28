@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo "Lines in \"out\" file:"
+while true; do
+    wc -l out
+    sleep 1
+done
