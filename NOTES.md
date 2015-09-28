@@ -1,30 +1,34 @@
 
 # To do
 
+* Re-read everything below. Re-read all resources. See all YouTube videos
+  again. Re-read H-bridge secrets, especially, including the last two pages
+  that I skipped last time.
+* Check [Reddit thread](https://www.reddit.com/r/ControlTheory/comments/3gkfyd/i_need_help_on_controlling_an_arm/)
+    * Suggests 2 kHz update rate.
+    * Decompose torque into gravity + acceleration. Make the gravity one feedforward
+        and use feedback for second.
 * Read through all blog posts for the [power supply](https://hackaday.io/project/4154-bench-power-supply).
 * Watch control systems YouTube videos.
-    * https://www.youtube.com/user/ControlLectures
-* Try PWM library for higher frequency.
-* Implement PID for motor.
-    * Decide on feedback.
-        * Chip that uses magnet (AS5045).
-            * Ugh, seems hard to use. Magnet mounting must be pretty precise.
-            * Find magnet.
-                * Typically the magnet should be 6mm in diameter and ≥2.5mm in
-                  height. Magnetic materials such as rare earth AlNiCo/SmCo5 or
-                  NdFeB (neodymium) are recommended. Diametrically magnetized.
-                * http://ams.com/eng/Products/Position-Sensors/Magnets/AS5000-MD6H-3
-        * Pot.
-            * How to mount?
-    * Use pot for input.
-    * Use two-position switch to invert input.
+    * [YouTube](https://www.youtube.com/user/ControlLectures)
+    * [Konoz](https://konoz.io/courses/54d3096aef490c2607a7a660/components/YOUTUBE-oBc_BHxw78s)
 * Can we find an IC that converts current to something measurable by the Arduino so that
     we can shut things off if the current goes up too much?
     * ACS710
+    * Check how the [Arduino Motor Shield](https://www.arduino.cc/en/Main/ArduinoMotorShieldR3) does it.
+        * [Schematic](https://www.arduino.cc/en/uploads/Main/arduino_MotorShield_Rev3-schematic.pdf)
+        * They use an L298, which has current sensing pins.
+            * See breakout board elsewhere in this doc.
+    * [Current sensing in power steering](https://www.maximintegrated.com/en/app-notes/index.mvp/id/5073)
 * Figure out how I'll control all this.
     * Mac OS to Ubuntu in VirtualBox to Arduino to hardware?
     * i2cproxy?
     * VirtualBox is pretty slow.
+    * Arduino Zero might be capable enough.
+    * [pcDuino3B](https://www.sparkfun.com/products/13707)
+    * [Intel Edison](http://www.intel.com/content/www/us/en/do-it-yourself/edison.html)
+    * [MinnowBoard MAX](http://www.minnowboard.org/meet-minnowboard-max/)
+    * [Beaglebone Black](http://syrianspock.github.io/embedded-linux/2015/09/13/my-beaglebone-black-setup-for-embedded-and-robotics-development.html)
 
 # Goals
 
@@ -162,12 +166,13 @@
         * Darlington transistors (two in series to amplify more).
         * 15 A on collector.
         * Built-in diode protection.
+        * One guy (Fidonet guy) said never to use these -- MOSFETS are better in every way.
 * Notes:
     * Four switches to control direction of DC motor.
     * Must make sure you don't get shoot through. Turn off one transistor before turning
       on the other.
     * Can be used with PWM to vary the speed of the motor.
-        * PWM doesn't work well below 25%.
+        * PWM doesn't work well below 25%. (That's true of mine, but where did I get this note? Is it always true?)
 * Our large motor is 1 Ohm.
 * Questions:
     * Some use PNP and NPN and some use only NPN.
@@ -180,6 +185,10 @@
     * How to hook up PWM of SN754410? Options:
         * Send PWM to enable pin. Then either use two digital pins for control (direction)
           or use an external inverter.
+            * Used in [this circuit](http://www.societyofrobots.com/member_tutorials/node/164).
+                * Says 5 kHz max.
+                * Uses 10k pull-up resistors on control pins.
+                * Uses transistor to invert second control pin.
         * Pull enable high, set one direction pin to a digital pin, and the other to a
           PWM pin. If direction = 0, then PWM goes from 0 (off) to 255 (fast). If direction = 1,
           then PWM goes from 255 (off) to 0 (fast). This is called sign magnitude. Not
@@ -244,6 +253,9 @@
     * L298N: Full bridge (4A). https://www.sparkfun.com/products/9479
         * Has [breakout board](https://www.sparkfun.com/products/9540).
         * See [sample product](https://www.sparkfun.com/products/9670).
+        * Has current sensor pins.
+    * LMD18200: 3A, current feedback, datasheet has lots of info.
+        * Can get [breakout board](http://www.robotcraft.ca/index.php/main-robot-electronics-catalog/breakout-boards/unpopulated-pcb-boards/breakout-board-for-lmd1820x-h-bridge.html)
 * AS5045: 12-bit rotary position sensor.
     * [Explained](https://www.youtube.com/watch?v=6RtJi9XITW0)
     * [Demoed](https://www.youtube.com/watch?v=jbcPydrh0aA)
@@ -253,6 +265,11 @@
     * [Guy who used it](http://dangerousprototypes.com/forum/viewtopic.php?f=56&t=3669)
     * [Forum for it](http://www.madscientisthut.com/forum_php/viewforum.php?f=11&sid=04bf2dbaab5299ec3545b01336a225a1)
     * [Library](https://github.com/smellsofbikes/AS5045_arduino_library)
+    * Magnet:
+        * Typically the magnet should be 6mm in diameter and ≥2.5mm in
+          height. Magnetic materials such as rare earth AlNiCo/SmCo5 or
+          NdFeB (neodymium) are recommended. Diametrically magnetized.
+        * http://ams.com/eng/Products/Position-Sensors/Magnets/AS5000-MD6H-3
 * [MD01B motor driver](https://www.pololu.com/product/705)
     * 9A
 * Mikronauts:
