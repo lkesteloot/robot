@@ -1,6 +1,12 @@
 
 # To do
 
+* Read this about motor control and PID:
+    http://stratifylabs.co/embedded%20design%20tips/2013/10/15/Tips-Motor-Control-using-PWM-and-PID/
+    https://www.reddit.com/r/ControlTheory/comments/4j0pyk/help_how_can_i_find_the_transfer_function_of_an/
+* Investigate the online course [Robot Mechanics and Control, Part 1](https://www.edx.org/course/robot-mechanics-control-part-i-snux-snu446-345-1x#!)
+* Investigate the online course [Underactuated Robotics](https://www.edx.org/course/underactuated-robotics-mitx-6-832x)
+* Investigate [CS235](https://www.youtube.com/user/StanfordCS235/videos)
 * Re-read everything below. Re-read all resources. See all YouTube videos
   again. Re-read H-bridge secrets, especially, including the last two pages
   that I skipped last time.

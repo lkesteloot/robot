@@ -5,7 +5,7 @@
 
 struct AS5045Data {
     // In degrees.
-    int angle;
+    float angle;
 
     // Status codes.
     bool movingAway;

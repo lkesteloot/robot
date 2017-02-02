@@ -46,7 +46,7 @@ AS5045Data AS5045::getData() {
     // Angle.
     long angle = packeddata & ANGLE_MASK; // mask rightmost 6 digits of packeddata to zero, into angle.
     angle = (angle >> 6); // shift 18-digit angle right 6 digits to form 12-digit value
-    data.angle = (long)(angle * 0.08789); // angle * (360/4096) == actual degrees
+    data.angle = angle * 0.08789; // angle * (360/4096) == actual degrees
 
     // Status bits.
     long statusbits = packeddata & STATUS_MASK;

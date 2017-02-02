@@ -35,7 +35,7 @@ void loop()
 }
 #endif
 
-#if 1
+#if 0
 // Control motor speed with pot.
 void loop()
 {
@@ -48,18 +48,18 @@ void loop()
 }
 #endif
 
-#if 0
+#if 1
 // Run through all PWM values and display speed.
 void loop()
 {
   delay(2000);
   
-  for (int speed = -255; speed <= 255; speed += 30) {
+  for (int speed = -255; speed <= 255; speed += 10) {
     Serial.print("Speed ");
     Serial.println(speed);
     shoulder.move(speed);
 
-    for (int j = 0; j < 100; j++) {
+    for (int j = 0; j < 3000; j++) {
       AS5045Data data = as5045.getData();
       Serial.print(j);
       Serial.print(" ");
