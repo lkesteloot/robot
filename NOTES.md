@@ -1,6 +1,8 @@
 
 # To do
 
+* Read about this beautiful arm:
+    * https://hackaday.io/project/19968-walter
 * Read this about motor control and PID:
     http://stratifylabs.co/embedded%20design%20tips/2013/10/15/Tips-Motor-Control-using-PWM-and-PID/
     https://www.reddit.com/r/ControlTheory/comments/4j0pyk/help_how_can_i_find_the_transfer_function_of_an/
